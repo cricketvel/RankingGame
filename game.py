@@ -21,12 +21,9 @@ class Validator(object):
 
         while ' ' in list_values:
             list_values.remove(' ')
-
         while '' in list_values:
             list_values.remove('')
-
         return list_values
-
 
     def validate_scores_and_players_equal(self, players, scores):
         '''
@@ -48,9 +45,8 @@ class Validator(object):
         '''
         print("Maximum allowed players or plays check")
         if players > self.allowed_players:
-            sys.exit(
-                "The maximum allowed number of plays or players is {0}. You have entered {1} plays or players".format(self.allowed_players,
-                                                                                                    players))
+            sys.exit("The maximum allowed number of plays or players is {0}. You have entered {1} plays or players".format(self.allowed_players, players))
+
 
     def maximum_scores(self, score):
         '''
@@ -77,10 +73,6 @@ class Validator(object):
         '''
         Sorts the list based on the function call
         if none is set to True, then it will return the list
-        :param scores_list:
-        :param descending:
-        :param ascending:
-        :return:
         '''
         if descending:
             return sorted(scores_list, reverse=True)
@@ -125,7 +117,6 @@ class Scores(Validator):
         for rank in self.rank:
             for key, value in rank['testuser'].items():
                 print("Rank {0} is held by {1} with score {2}".format(value, 'testuser', key))
-
 
 
     def show_leader_board_afte_a_game(self, game, alice_score):
@@ -177,10 +168,7 @@ class Scores(Validator):
             self.list_of_scores = self.sort(self.list_of_scores, descending=True)
             self.show_leader_board_afte_a_game(game, alice_game_score)
 
-
-
 class Main(Scores):
-
 
     def validate(self):
         '''
@@ -236,10 +224,6 @@ class Main(Scores):
         self.validate_alice_scores()
         self.calculate_alice_rank()
 
-
 players = input("Enter the number_of_players:")
-
 main_class = Main()
 main_class.start(players)
-
-
